@@ -32,7 +32,6 @@ import com.maninformatic.tramite.service.TramiteServiceImp;
 
 @Configuration
 //@EnableTransactionManagement
-
 //@ComponentScan(basePackages = {"com.maninformatic.tramite"})
 //@EnableWebMvc
 public class Configuracion extends WebMvcConfigurerAdapter {
