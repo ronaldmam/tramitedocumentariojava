@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 public class TipoTramite implements Serializable  {
 	@Id
+	@GeneratedValue
 	private int Id;
     private String TiTrNombre;
     private String TiTrAbrevia;

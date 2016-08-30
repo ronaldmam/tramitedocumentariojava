@@ -1,5 +1,9 @@
 package com.maninformatic.tramite.service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -192,9 +197,38 @@ public class TramiteServiceImp implements ITramiteService {
 	
 	//Entidad TipoTramite
 	public TipoTramite GetTipoTramiteById(int id){
+		
 		return tipoTramiteDao.findOne(id);
 	}
 	public List<TipoTramite> GetAllTipoTramite() {
+		
+		
+	//	String  students = query.getSingleResult().toString();
+		
+		Statement st=null;    
+		Connection con=null;
+		try
+		{
+		 String driver1 = "com.mysql.jdbc.Driver";            
+		 Class.forName(driver1 );             
+		 String url  = "jdbc:mysql://127.0.0.1:3307/tramite";             
+		 String user = "ronaldmam";//"adminnzLxxNE";             
+		 String pass = "";//"pass_Server";             
+		 con = DriverManager.getConnection(url,user,pass);             
+		 st= con.createStatement();  
+		 String sql="SELECT NOW() AS Hora_Fecha"; 
+		 String fx="2010-02-01 00:00:00";
+	 
+		 ResultSet  re1=st.executeQuery(sql);
+		 while(re1.next()) 
+		{  fx=re1.getString("Hora_Fecha");             }
+
+		 
+		 
+		}
+		catch(Exception x21)         {             
+			System.out.println(x21);         }
+
 		return tipoTramiteDao.findAll();
 	}
 	public TipoAccion GetTipoAccionById(int id){

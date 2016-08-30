@@ -3,6 +3,7 @@ package com.maninformatic.tramite.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,12 +20,12 @@ public class TipoTramiteRestController {
 	@Autowired
 	ITramiteService tramiteService;
 	
-	@RequestMapping(value = "/tipotramite", method=RequestMethod.GET)
+	@RequestMapping(value = "/tipotramite", method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<TipoTramite> list() {
 		return tramiteService.GetAllTipoTramite();
 	}
 	
-	@RequestMapping(value="/tipotramite/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/tipotramite/{id}", method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public TipoTramite get(@PathVariable("id") int id) {
 		TipoTramite tipoTramite=tramiteService.GetTipoTramiteById(id);
 		if(tipoTramite==null)

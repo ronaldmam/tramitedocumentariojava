@@ -56,7 +56,7 @@ public class Tramite implements Serializable  {
 	
 	private Integer EnExId=0;
 	
-	private boolean TramEnviado;
+	private Boolean TramEnviado;
 	private String TramObserva;
 	private String TramDocRefere;
 	@Temporal(javax.persistence.TemporalType.DATE)
@@ -67,13 +67,13 @@ public class Tramite implements Serializable  {
 	
 	
 	@Column(name = "TramArchivoPub")
-	private boolean TramArchivoPub=true;
+	private Boolean TramArchivoPub=true;
 	private Date TramFechaRegistroDoc;
 	private String TramDocRecibido;
 	private Date TramFechaRecepcionOrig;
 	private Date TramFechaRespuesta;
 	@Column(name="TramNotificar")
-	private boolean TramNotificar;
+	private Boolean TramNotificar;
 	
 	@JsonProperty("Id")
 	public int getId() {
@@ -177,7 +177,7 @@ public class Tramite implements Serializable  {
 		TramArchivo = tramArchivo;
 	}
 	@JsonProperty("TramArchivoPub")
-	public boolean isTramArchivoPub() {
+	public Boolean isTramArchivoPub() {
 		return TramArchivoPub;
 	}
 	public void setTramArchivoPub(Boolean tramArchivoPub) {
@@ -212,7 +212,7 @@ public class Tramite implements Serializable  {
 		TramFechaRespuesta = tramFechaRespuesta;
 	}
 	@JsonProperty("TramNotificar")
-	public boolean isTramNotificar() {
+	public Boolean isTramNotificar() {
 		return TramNotificar;
 	}
 	public void setTramNotificar(Boolean tramNotificar) {
