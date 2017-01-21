@@ -31,10 +31,10 @@ public class TramiteDaoImp extends AbstractJpaDAO<Tramite> implements ITramiteDa
 		 storedProcedure.registerStoredProcedureParameter("PersonLog", String.class, ParameterMode.IN);
 
 		 storedProcedure.setParameter("tramId",tramiteId);
-		    storedProcedure.setParameter("zona_id",idZona);
-		    storedProcedure.setParameter("PersonLog",usuarioLog);
-		    storedProcedure.execute();
-		    return 1;
+		 storedProcedure.setParameter("zona_id",idZona);
+		 storedProcedure.setParameter("PersonLog",usuarioLog);
+		 storedProcedure.execute();
+		 return 1;
 		 /*   List results=storedProcedure.getResultList();// .getResultList();
 		    if (results == null || results.isEmpty()) {
 		        return 0;

@@ -53,13 +53,13 @@ public class Tramite implements Serializable  {
 	private String TramSiglaCAP;
 	private String TramCodEmisor;
 	
-	
 	private Integer EnExId=0;
 	
-	private Boolean TramEnviado;
+	private Boolean TramEnviado=false;
 	private String TramObserva;
 	private String TramDocRefere;
-	@Temporal(javax.persistence.TemporalType.DATE)
+	//@Temporal(javax.persistence.TemporalType.TIMESTAMP)
+		//@DateTimeFormat(pattern = "dd.MM.yyyy HH:mm:ss.SSSZ") 
 	private Date TramFechaDoc;
 	
 	@Column(name="TramArchivo")
@@ -67,13 +67,13 @@ public class Tramite implements Serializable  {
 	
 	
 	@Column(name = "TramArchivoPub")
-	private Boolean TramArchivoPub=true;
+	private Boolean TramArchivoPub=false;
 	private Date TramFechaRegistroDoc;
 	private String TramDocRecibido;
 	private Date TramFechaRecepcionOrig;
 	private Date TramFechaRespuesta;
 	@Column(name="TramNotificar")
-	private Boolean TramNotificar;
+	private Boolean TramNotificar=false;
 	
 	@JsonProperty("Id")
 	public int getId() {

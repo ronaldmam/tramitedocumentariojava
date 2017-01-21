@@ -152,11 +152,11 @@ public class TramiteServiceImp implements ITramiteService {
 		EntityTransaction transaction=entityManager.getTransaction(); 
 		try{
 	        	transaction.begin();
-				if (recepciono=false){
+				if (recepciono==false){
 					//Registramos primero la recepcion
 					 int _trModId;
-					 _trModId=tramiteMoviDao.RecepcionarTramiteMov(tramitemov.getTramId(), tramitemov.getId(), personLog);
-					//Registramos La Derivacion
+					 _trModId=(int)tramiteMoviDao.RecepcionarTramiteMov(tramitemov.getTramId(), tramitemov.getId(), personLog);
+					 //Registramos La Derivacion
 					 tramiteMoviDao.DerivarTramiteMov(tramitemov,_trModId, personLog, zonaLog, personExt, recepciono, supervisor);
 				}
 				else{

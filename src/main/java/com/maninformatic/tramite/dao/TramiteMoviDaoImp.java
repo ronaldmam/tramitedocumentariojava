@@ -22,12 +22,14 @@ public class TramiteMoviDaoImp extends AbstractJpaDAO<TramiteMovi> implements IT
 		 storedProcedure.registerStoredProcedureParameter("tramId", Integer.class, ParameterMode.IN);
 		 storedProcedure.registerStoredProcedureParameter("trMovid", Integer.class, ParameterMode.IN);
 		 storedProcedure.registerStoredProcedureParameter("PersonLog", String.class, ParameterMode.IN);
+		 storedProcedure.registerStoredProcedureParameter("id_tramite", Integer.class, ParameterMode.OUT);
 
 		 storedProcedure.setParameter("tramId",tramId);
 		 storedProcedure.setParameter("trMovid",trMovid);
 		 storedProcedure.setParameter("PersonLog",usuarioLog);
 		 storedProcedure.execute();
-		 return 1;
+		 Integer id_tramite=(Integer) storedProcedure.getOutputParameterValue("id_tramite");
+		 return id_tramite;
 	 }
 	 public void ArchivarTramiteMov(int tramId, int trMovid, String usuarioLog,String trMoObserva){
 		 StoredProcedureQuery storedProcedure  = entityManager.createStoredProcedureQuery("usp_I_trTramiteMov_Archivado");
@@ -67,8 +69,8 @@ public class TramiteMoviDaoImp extends AbstractJpaDAO<TramiteMovi> implements IT
 		 storedProcedure.setParameter("tiAcId1",tramitemov.getTiAcId1());
 		 storedProcedure.setParameter("tiAcId2",tramitemov.getTiAcId2());
 		 storedProcedure.setParameter("tiAcId3",tramitemov.getTiAcId3());
-		 storedProcedure.setParameter("trMoObserva",tramitemov.getTrMoObserva());
-		 storedProcedure.setParameter("trMoCopia",tramitemov.isTrMoCopia());
+		 storedProcedure.setParameter("trMoObserva",tramitemov.getTrMoObserva().toString());//
+		 storedProcedure.setParameter("trMoCopia",tramitemov.isTrMoCopia()); //
 		 storedProcedure.setParameter("PersonLog",personLog);
 		 storedProcedure.setParameter("ZonaLog",zonaLog);
 		 storedProcedure.setParameter("personExt",personExt);
